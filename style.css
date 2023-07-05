@@ -1,0 +1,98 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    padding-top: 50px;
+    
+}
+.navbar{
+    background-color: bisque;
+}
+
+.expanded {
+    padding-top: 170px; /* Adjust this value based on your navbar height */
+    transition: padding-top 0.1s ease; /* Add a transition effect */
+}
+  
+.saved-message {
+    position: fixed;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    transition: top 0.5s ease-in-out;
+    z-index: 9999;
+}
+
+
+
+/* .navbar-collapse {
+    overflow: hidden;
+    transition:0.15s ease;
+} */
+
+#main{
+    width:100%;
+    min-height: 100vh;
+    /* background-color: azure; */
+    background-color: rgb(7, 44, 56);
+    display:flex;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+    transition:0.3s ease;
+    /* margin-top:50px; */
+    
+}
+
+.note{
+    width: 300px;
+    height: 300px;
+    background-color: antiquewhite;
+    margin: 20px;
+}
+
+.tool{
+    width:100%;
+    background-color: black;
+    color: azure;
+    padding: 10px;
+    display: flex;
+    justify-content: end;
+}
+
+.tool i{
+    padding: 5px;
+    cursor: pointer;
+}
+
+.note textarea{
+    border: none;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    font-size: 18px;
+    
+}
+
+.note textarea:focus{
+    border: 0;
+    /* outline:0; */
+
+}
+
+#addBtn{
+    /* position: fixed; */
+    cursor: pointer;
+    /* outline: 2px;
+    padding: 5px;
+    margin: 10px; */
+    /* right:10px;
+    top:10px; */
+    /* border:0px; */
+}
