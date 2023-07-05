@@ -8,8 +8,17 @@ body{
     padding-top: 50px;
     
 }
-.navbar{
-    background-color: bisque;
+
+nav.navbar{
+    background-color: #a8a615;
+}
+
+.navbar-brand{
+    margin-left: 40px;
+}
+
+.navbar-nav{
+    margin-left: 40px;
 }
 
 .expanded {
@@ -30,18 +39,11 @@ body{
     z-index: 9999;
 }
 
-
-
-/* .navbar-collapse {
-    overflow: hidden;
-    transition:0.15s ease;
-} */
-
 #main{
     width:100%;
     min-height: 100vh;
     /* background-color: azure; */
-    background-color: rgb(7, 44, 56);
+    background-color: rgb(7, 40, 51);
     display:flex;
     flex-wrap: wrap;
     padding-bottom: 50px;
@@ -53,23 +55,29 @@ body{
 .note{
     width: 300px;
     height: 300px;
-    background-color: antiquewhite;
+    background-color: rgb(94, 57, 8);
     margin: 20px;
 }
 
-.tool{
-    width:100%;
+.tool {
+    width: 100%;
     background-color: black;
     color: azure;
     padding: 10px;
     display: flex;
-    justify-content: end;
-}
-
-.tool i{
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .tool i {
     padding: 5px;
     cursor: pointer;
-}
+  }
+  
+  .note-counter {
+    margin-right: auto;
+  }
+  
 
 .note textarea{
     border: none;
@@ -77,6 +85,9 @@ body{
     height: 100%;
     resize: none;
     font-size: 18px;
+    padding-left: 7px;
+    background-color: #595959;
+    color:azure;
     
 }
 
