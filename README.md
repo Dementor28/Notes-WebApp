@@ -1,4 +1,4 @@
 # Notes-WebApp
 A simple webapp in which a user can write, save, create, delete notes.
 Link:
-# plainnote.netlify.app
+plainnote.netlify.app
