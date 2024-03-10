@@ -4,9 +4,7 @@ let noteCounter = [];
 
 addBtn.addEventListener("click", function () {
   addNote();
-//   noteCounter++;
 });
-
 
 const saveNotes = () => {
   const notes = document.querySelectorAll(".note textarea");
@@ -16,11 +14,11 @@ const saveNotes = () => {
   });
   if (data.length === 0) {
     localStorage.removeItem("notes");
-    // noteCounter = [];
+    noteCounter = [];
   } else {
     localStorage.setItem("notes", JSON.stringify(data));
   }
-//   localStorage.setItem("noteCounter", JSON.stringify(noteCounter));
+  localStorage.setItem("noteCounter", JSON.stringify(noteCounter));
 };
 
 const addNote = (text = "") => {
@@ -37,7 +35,7 @@ const addNote = (text = "") => {
 
   note.innerHTML = `
     <div class="tool">
-        <span class="note-counter">Note No counter for now</span>
+        <span class="note-counter">Note ${noteNumber}</span>
         <i class="save fa-regular fa-floppy-disk"></i>
         <i class="trash fa-solid fa-trash"></i>
     </div>
@@ -51,33 +49,32 @@ const addNote = (text = "") => {
     textarea.value = text;
   }
 
-
   textarea.addEventListener("focus", function () {
     if (textarea.value === "Add note here") {
       textarea.value = "";
     }
   });
-  
+
   textarea.addEventListener("blur", function () {
     if (textarea.value === "") {
       textarea.value = "Add note here";
     }
   });
-  
 
   note.querySelector(".trash").addEventListener("click", function () {
+    const deletedNoteNumber = noteCounter.indexOf(noteNumber);
+    noteCounter.splice(deletedNoteNumber, 1);
     note.remove();
     showDeletedMessage();
+    updateNoteCounters();
     saveNotes();
   });
 
-  
   function showDeletedMessage() {
     const message = document.createElement("div");
     message.textContent = "Item Deleted!";
     message.classList.add("saved-message");
     document.body.appendChild(message);
-    console.log(message);
 
     setTimeout(function () {
       message.style.top = "0";
@@ -101,7 +98,6 @@ const addNote = (text = "") => {
     message.textContent = "Item saved!";
     message.classList.add("saved-message");
     document.body.appendChild(message);
-    console.log(message);
 
     setTimeout(function () {
       message.style.top = "0";
@@ -123,15 +119,24 @@ const addNote = (text = "") => {
   saveNotes();
 };
 
+const updateNoteCounters = () => {
+  document.querySelectorAll(".note").forEach((note, index) => {
+    const counterSpan = note.querySelector(".note-counter");
+    noteCounter[index] = index + 1;
+    counterSpan.textContent = `Note ${noteCounter[index]}`;
+  });
+};
+
 (function () {
   const lsnotes = JSON.parse(localStorage.getItem("notes"));
-  // console.log(lsnotes);
   if (lsnotes === null) {
+    noteCounter = [];
     addNote();
   } else {
     lsnotes.forEach((lsnote) => {
       addNote(lsnote);
     });
+    updateNoteCounters();
   }
 })();
 

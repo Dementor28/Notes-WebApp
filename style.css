@@ -6,7 +6,19 @@
 
 body{
     padding-top: 50px;
-    
+}
+
+p{
+    position: fixed;
+    bottom: 10px;
+    left:10px;
+}
+
+.highlighted-text{
+    background-color: #FFFF00;
+    padding: 5px;
+    font-weight: bold;
+
 }
 
 nav.navbar{
@@ -57,6 +69,7 @@ nav.navbar{
     height: 300px;
     background-color: rgb(94, 57, 8);
     margin: 20px;
+    /* border-radius: 30px; */
 }
 
 .tool {
@@ -93,6 +106,8 @@ nav.navbar{
 
 .note textarea:focus{
     border: 0;
+    transition: 0.3s ease;
+
     /* outline:0; */
 
 }
